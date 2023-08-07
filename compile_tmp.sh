@@ -1,7 +1,7 @@
 #!/bin/bash
 
 #####
-#[._.]: ./etc/load_bar.sh(. file):
+#[._.]: ./etc/load_bar.sh(source file):
 #####
 
 #badger
@@ -31,7 +31,7 @@ load(){
 }
 
 #####
-#[._.]: ./etc/key_word.sh(. file):
+#[._.]: ./etc/key_word.sh(source file):
 #####
 
 #badger
@@ -67,7 +67,7 @@ get_key_word_input(){
 }
 
 #####
-#[._.]: ./etc/info.sh(. file):
+#[._.]: ./etc/info.sh(source file):
 #####
 
 #badger
@@ -84,7 +84,7 @@ get_current_file_name(){
 }
 
 #####
-#[._.]: ./etc/file.sh(. file):
+#[._.]: ./etc/file.sh(source file):
 #####
 
 #badger
@@ -228,7 +228,7 @@ get_file_extension_from_file(){
 }
 
 #####
-#[._.]: ./etc/error.sh(. file):
+#[._.]: ./etc/error.sh(source file):
 #####
 
 #badger
@@ -259,7 +259,7 @@ alias catch=" ); Exception.Extract \$? || "
 Exception.Capture() {
     local script="${BASH_SOURCE[1]#./}"
 
-    if [[ ! -f /tmp/stored_exception_. ]]; then
+    if [[ ! -f /tmp/stored_exception_source ]]; then
         echo "$script" > /tmp/stored_exception_source
     fi
     if [[ ! -f /tmp/stored_exception_line ]]; then
@@ -292,7 +292,7 @@ Exception.Extract() {
 }
 
 Exception.GetLastException() {
-    if [[ -f /tmp/stored_exception ]] && [[ -f /tmp/stored_exception_line ]] && [[ -f /tmp/stored_exception_. ]]
+    if [[ -f /tmp/stored_exception ]] && [[ -f /tmp/stored_exception_line ]] && [[ -f /tmp/stored_exception_source ]]
     then
         cat /tmp/stored_exception
         cat /tmp/stored_exception_line
@@ -306,7 +306,7 @@ Exception.GetLastException() {
 }
 
 #####
-#[._.]: ./etc/device.sh(. file):
+#[._.]: ./etc/device.sh(source file):
 #####
 
 #badger
@@ -329,7 +329,7 @@ get_ip(){
 }
 
 #####
-#[._.]: ./etc/color.sh(. file):
+#[._.]: ./etc/color.sh(source file):
 #####
 
 #badger
@@ -407,18 +407,18 @@ set_bg_color(){
 }
 
 #####
-#[O-O]: ./compile(1).exe(main/input file):
+#[O-O]: ./compile(main/input file):
 #####
 
 #!/bin/bash
 #badger
-#. ./etc/color.sh #[._.]: this line has been edited(commented out) by ./compile.sh.
-#. ./etc/device.sh #[._.]: this line has been edited(commented out) by ./compile.sh.
-#. ./etc/error.sh #[._.]: this line has been edited(commented out) by ./compile.sh.
-#. ./etc/file.sh #[._.]: this line has been edited(commented out) by ./compile.sh.
-#. ./etc/info.sh #[._.]: this line has been edited(commented out) by ./compile.sh.
-#. ./etc/key_word.sh #[._.]: this line has been edited(commented out) by ./compile.sh.
-#. ./etc/load_bar.sh #[._.]: this line has been edited(commented out) by ./compile.sh.
+#. ./etc/color.sh #[._.]: this line has been edited(commented out) by ./compile.
+#. ./etc/device.sh #[._.]: this line has been edited(commented out) by ./compile.
+#. ./etc/error.sh #[._.]: this line has been edited(commented out) by ./compile.
+#. ./etc/file.sh #[._.]: this line has been edited(commented out) by ./compile.
+#. ./etc/info.sh #[._.]: this line has been edited(commented out) by ./compile.
+#. ./etc/key_word.sh #[._.]: this line has been edited(commented out) by ./compile.
+#. ./etc/load_bar.sh #[._.]: this line has been edited(commented out) by ./compile.
 
 help(){
 	echo -e "help:\n"
@@ -581,7 +581,7 @@ for (( a=$((${#source_file[@]}-1)); a>=1; a-- ));do
 	if ! is_file_exist $file;then
 		echo -e "*${red}[._.]:${end} '${yellow}${file}${end}' ${red}doesn't exist!${end}"
 		echo "*check the file that u specified in your script and make sure that it is correct."
-		echo -e "*a possible issue could be that this program cannot access the . file because u used \"./\" 4 the . file in your script and this program is not located in the local dir.."
+		echo -e "*a possible issue could be that this program cannot access the source file because u used \"./\" 4 the source file in your script and this program is not located in the local dir.."
 		echo "*try running 'compile -h' in your terminal 4 more info. on the usage of this program."
 		exit
 	elif [ $(get_file_extension_from_file "$file") != "sh" ];then
@@ -591,7 +591,7 @@ for (( a=$((${#source_file[@]}-1)); a>=1; a-- ));do
 		exit
 	fi
 
-	add_file_text $file2 "#####\n#[._.]: ${file}(. file):\n#####\n\n"
+	add_file_text $file2 "#####\n#[._.]: ${file}(source file):\n#####\n\n"
 	add_file_to_file $file $file2
 	add_file_text $file2 "\n\n"
 done
@@ -603,7 +603,7 @@ all_line=();get_file_line $file2 all_line
 
 for (( a=0; a<${#all_line[@]}; a++ ));do
 	if [[ ${all_line[$a]} =~ ^\.\s* ]];then
-		set_file_line $file2 $a "#${all_line[$a]} #[._.]: this line has been edited(commented out) by ./compile.sh."
+		set_file_line $file2 $a "#${all_line[$a]} #[._.]: this line has been edited(commented out) by ./compile."
 		
 		if is_key_word "-v" || is_key_word "--verbose";then
 			echo -e "\n${blue}${file2}${end}(line ${red}$((a+1))${end}):"
@@ -626,7 +626,7 @@ if is_key_word "-q";then
 	echo
 
 	if [ "$change_source" = "y" ];then
-		sed -i "s/. /. /g" "$file2"
+		sed -i "s/source /. /g" "$file2"
 	fi
 fi
 
