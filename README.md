@@ -29,6 +29,12 @@ If you do add `compile` into your path, you can run it just by typing something 
 
 ## Usage
 
+To grant permission to execute:
+
+```
+chmod +x <path to compile.sh>
+```
+
 To compile a bash script, use the following command:
 
 ```
