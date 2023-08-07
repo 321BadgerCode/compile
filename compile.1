@@ -1,2 +1,68 @@
 ./"badger
-.Th man. 1 "7/7/2022" "1.0" "compile man. page"
+.TH compile 1 "7/7/2022" "1.0" "compile man. page"
+
+.SH NAME
+compile - compiles a bash script into a stand-alone executable
+
+.SH SYNOPSIS
+compile file_to_compile [options]
+
+.SH OPTIONS
+.TP
+.B -h, --help
+Prints the help message.
+.TP
+.B -o, --out
+The output file name. If not specified, the output file will be named after the inputted file.
+.TP
+.B -v, --verbose
+Enables verbose output.
+.TP
+.B -q, --question
+Asks the user if they want to see more options after the script is compiled.
+
+.SH DESCRIPTION
+compile compiles a bash script into a stand-alone executable using the shc
+command. shc converts the bash script into C code, and then GCC compiles the C code
+into an executable.
+
+The compiled script will not depend on any local files, so it can be easily
+distributed and run on any system that has GCC installed.
+
+.SH EXAMPLES
+To compile the bash script `script.sh` into a stand-alone executable, you would use
+the following command:
+
+compile.sh script.sh
+
+
+This would create an executable file named `script.exe`.
+
+To specify the output file name, you would use the following command:
+
+compile script.sh -o out.exe
+
+
+This would create an executable file named `out.exe`.
+
+To enable verbose output, you would use the following command:
+
+compile -v script.sh
+
+
+This would print more information about the compilation process.
+
+To ask the user if they want to see more options after the script is compiled, you
+would use the following command:
+
+compile -q script.sh
+
+
+This would ask the user if they want to see more options, such as running the
+compiled script.
+
+.SH BUGS
+Please report any bugs to the author of this script.
+
+.SH AUTHOR
+This script was written by Badger Code.
