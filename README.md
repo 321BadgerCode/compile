@@ -43,7 +43,7 @@ To compile a bash script, use the following command:
 
 This will create an executable file named `script_to_compile.exe`.
 
-You can also specify the output file name using the `-o` or `--out` option:
+You can also specify the output file name using the `-o` option:
 
 ```
 compile script.sh -o out.exe
@@ -71,7 +71,7 @@ This will ask the user if they want to see more options, such as running the com
 
 * `-h, --help`
     * Prints this help message.
-* `-o, --out`
+* `-o`
     * The output file name. If not specified, the output file will be named `compiled_script`.
 * `-v, --verbose`
     * Enables verbose output. This will print more information about the compilation process.
