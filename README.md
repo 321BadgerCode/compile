@@ -12,7 +12,7 @@ Bash script to put local files that a bash script uses into the bash script, so 
 Intall `shc`(sh->c) & `gcc`(c->exe) using the following command(you likely already have `gcc` if you're on Linux):
 
 ```sh
-<path to compile.sh> -i2 #or you could use "--install" instead
+<path to compile> -i2 #or you could use "--install" instead
 ```
 
 ## Installation
@@ -23,22 +23,24 @@ To install `compile`, run the following command:
 git clone https://github.com/321BadgerCode/compile.git
 ```
 
-> You can use `compile` to compile itself by running `<path to compile.sh> <path to compile.sh>`, then renaming it to `compile`(take out `.exe`) and appending the outputted executable to your PATH or by placing the executable into a folder that's already in your path such as `/usr/local/bin/`.
+> You can use `compile` to compile itself by running `<path to compile> <path to compile.sh>`, then renaming it to `compile`(take out `.exe`) and appending the outputted executable to your PATH or by placing the executable into a folder that's already in your path such as `/usr/local/bin/`.
 
 If you do add `compile` into your path, you can run it just by typing something along the lines of: `compile script_to_compile.sh`.
 
 ## Usage
 
+[![](./vid_thumbnain.png)](./Screencast\ 2023-08-06\ 21:33:24.mp4)
+
 To grant permission to execute:
 
 ```
-chmod +x <path to compile.sh>
+chmod +x <path to compile>
 ```
 
 To compile a bash script, use the following command:
 
 ```
-<path to compile.sh> script_to_compile.sh
+<path to compile> script_to_compile.sh
 ```
 
 This will create an executable file named `script_to_compile.exe`.
