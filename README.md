@@ -29,7 +29,7 @@ If you do add `compile` into your path, you can run it just by typing something 
 
 ## Usage
 
-[![](./vid_thumbnail.png)](./Screencast\ 2023-08-06\ 21:33:24.mp4)
+[![](./vid_thumbnail.png)](./Screencast%202023-08-06%2021:33:24.mp4)
 
 To grant permission to execute:
 
